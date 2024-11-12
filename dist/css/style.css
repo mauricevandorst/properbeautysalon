@@ -939,7 +939,8 @@ button,input,select,textarea,label{
     position:relative
 }
 .hero-title{
-    font-weight:700
+    font-weight:700;
+    color: #373737;
 }
 .hero-paragraph{
     margin-bottom:32px
