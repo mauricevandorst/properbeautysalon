@@ -1012,7 +1012,7 @@ button,input,select,textarea,label{
 .feature{
     padding:12px;
     width:600px;
-    max-width:600px;
+    max-width:100%;
     flex-grow:1
 }
 .feature-inner{
