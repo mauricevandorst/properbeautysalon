@@ -924,7 +924,6 @@ button,input,select,textarea,label{
 .hero{
     position:relative;
     text-align:center;
-    padding-top:40px
 }
 .hero::before{
     content:'';
