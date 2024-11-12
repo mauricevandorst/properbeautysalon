@@ -1086,6 +1086,14 @@ button,input,select,textarea,label{
     max-width:344px;
     flex-grow:1
 }
+    @media only screen and (max-width: 600px) {
+        .pricing-table{
+            padding:12px;
+            width:210px;
+            max-width:350px;
+            flex-grow:1
+        }
+    }
 .pricing-table-inner{
     position:relative;
     display:flex;
