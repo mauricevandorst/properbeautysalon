@@ -344,6 +344,9 @@ h4,h5,h6,.h4,.h5,.h6{
 .text-light a{
     color:#6F8394
 }
+.text-white{
+    color:#fff
+}
 .text-light h1,.text-light h2,.text-light h3,.text-light h4,.text-light h5,.text-light h6,.text-light .h1,.text-light .h2,.text-light .h3,.text-light .h4,.text-light .h5,.text-light .h6{
     color:#fff !important
 }
@@ -869,7 +872,7 @@ button,input,select,textarea,label{
 }
 .button-primary{
     background:#e8dcd4;
-    background:linear-gradient(65deg, #dcd1ca 0, #e8dcd4 100%)
+    background:linear-gradient(65deg, #ece0d7 0, #ece0d7 100%)
 }
 .button-primary:hover{
     background:#ded2ca;
@@ -1246,4 +1249,41 @@ main{
     overflow: hidden;
     margin-top:40px;
     padding-bottom:40px
+}
+
+.discount-block {
+    position: relative;
+    z-index: 2;
+}
+
+.header-container {
+    display: inline-block;
+}
+
+.header-container h5 {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.line {
+    display: block;
+    height: 1px;
+    width: 100%; /* Matches the width of the text */
+    background-color: #373737;
+    margin-top: 2px; /* Positions the line exactly 2px below the text */
+}
+
+.discount500 {
+    float: right;
+    width: 200px; 
+    margin: 10px 10px 0 10px; 
+}
+
+@media (max-width: 480px) {
+    .discount500 {
+        width: 180px;
+        margin: 0 10px 0 10px; 
+    }
 }
