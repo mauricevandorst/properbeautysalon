@@ -1270,9 +1270,9 @@ main{
 .line {
     display: block;
     height: 1px;
-    width: 100%; /* Matches the width of the text */
+    width: 100%; 
     background-color: #373737;
-    margin-top: 2px; /* Positions the line exactly 2px below the text */
+    margin-top: 2px; 
 }
 
 .discount500 {
