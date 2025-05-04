@@ -1255,6 +1255,7 @@ main{
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100%;
 }
 .footer-brand,.footer-links,.footer-social-links{
     margin-bottom:24px
