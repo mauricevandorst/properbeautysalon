@@ -35,6 +35,16 @@
       viewFactor: 0.5
     })
 
+    sr.reveal('.calendar-feature', {
+      duration: 1000,
+      distance: '40px',
+      easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
+      interval: 100,
+      origin: 'bottom',
+      scale: 0.9,
+      viewFactor: 0.5
+    })
+
     const pricingTables = document.querySelectorAll('.pricing-table')
 
     pricingTables.forEach(pricingTable => {

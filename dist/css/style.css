@@ -347,6 +347,9 @@ h4,h5,h6,.h4,.h5,.h6{
 .text-white{
     color:#fff
 }
+.text-lightgray {
+    color: #d3d3d3;
+}
 .text-light h1,.text-light h2,.text-light h3,.text-light h4,.text-light h5,.text-light h6,.text-light .h1,.text-light .h2,.text-light .h3,.text-light .h4,.text-light .h5,.text-light .h6{
     color:#fff !important
 }
@@ -440,6 +443,10 @@ b,strong{
 button,input,select,textarea,label{
     font-size:18px;
     line-height:27px
+}
+.features-container{
+    width:100%;
+    margin:0 auto;
 }
 .container,.container-sm{
     width:100%;
@@ -895,13 +902,19 @@ button,input,select,textarea,label{
 }
 .site-header{
     position:relative;
-    padding:24px 0
+    padding:24px 0;
+    margin: 50px 0;
 }
 .site-header-inner{
     position:relative;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center
+}
+@media (min-width: 641px){
+    .site-header-inner{
+        justify-content:space-between
+    }
 }
 .header-links{
     display:inline-flex
@@ -1017,6 +1030,14 @@ button,input,select,textarea,label{
     width:600px;
     max-width:100%;
     flex-grow:1
+}
+.calendar-feature{
+    width:600px;
+    max-width:100%;
+    flex-grow:1
+}
+.calendar-feature-inner{
+    /*box-shadow:0 16px 48px #E2E8ED*/
 }
 .feature-inner{
     height:100%;
@@ -1223,11 +1244,17 @@ main{
 .site-footer-inner.has-top-divider::before{
     background:rgba(255,255,255,0.08)
 }
-.footer-brand,.footer-links,.footer-social-links,.footer-copyright{
+.footer-brand,.footer-links,.footer-social-links{
     flex:none;
     width:100%;
     display:inline-flex;
     justify-content:center
+}
+.footer-copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .footer-brand,.footer-links,.footer-social-links{
     margin-bottom:24px
@@ -1243,7 +1270,7 @@ main{
 }
 
 .logo {
-     max-width: 150px;
+     max-width: 300px;
 }
 
 .hero-illustration-primary {
