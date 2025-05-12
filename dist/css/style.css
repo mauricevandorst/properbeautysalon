@@ -1090,7 +1090,7 @@ button,input,select,textarea,label{
     overflow:hidden
 }
 .extras::before {
-    background: #1F2B35 !important;
+    background: #f3f2f0 !important;
 }
 .pricing .section-title{
     margin-bottom:48px
@@ -1278,7 +1278,7 @@ main{
     padding:8px
 }
 
-.logo {
+.footer-logo, .logo {
      max-width: 300px;
 }
 
@@ -1286,7 +1286,7 @@ main{
     border-radius: 15px;
     margin: 0 auto;
     overflow: hidden;
-    margin-top:40px;
+    margin-top:24px;
     padding-bottom:40px
 }
 
