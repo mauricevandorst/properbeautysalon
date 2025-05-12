@@ -1324,6 +1324,11 @@ main{
     margin: 10px 0 0 10px; 
 }
 
+.extra-discount-text {
+    font-size: 14px;
+    margin-left: 4px;
+}
+
 .flex {
     display: flex;
 }
