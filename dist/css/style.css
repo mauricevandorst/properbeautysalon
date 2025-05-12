@@ -1251,6 +1251,13 @@ main{
     display:inline-flex;
     justify-content:center
 }
+.footer-address {
+    flex:none;
+    width:100%;
+    display:inline-flex;
+    justify-content:center;
+    flex-direction: column;
+}
 .footer-copyright {
     display: flex;
     justify-content: center;
