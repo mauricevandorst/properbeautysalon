@@ -1282,6 +1282,10 @@ main{
      max-width: 300px;
 }
 
+.google-reviews-logo {
+    max-width: 150px;
+}
+
 .hero-illustration-primary {
     border-radius: 15px;
     margin: 0 auto;
@@ -1318,6 +1322,26 @@ main{
     float: right;
     width: 200px; 
     margin: 10px 0 0 10px; 
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.gap-2 {
+    gap: 5px;
+}
+
+.gap-4 {
+    gap: 10px;
 }
 
 @media (max-width: 480px) {
