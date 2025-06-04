@@ -1318,6 +1318,11 @@ main{
     margin-top: 2px; 
 }
 
+[class^="fillout-embed-popup-button-"] {
+  z-index: 9998 !important;
+  position: relative;
+}
+
 .discount500 {
     float: right;
     width: 200px; 
