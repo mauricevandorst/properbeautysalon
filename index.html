@@ -23,8 +23,7 @@
     <meta property="og:site_name" content="Proper Beauty Salon">
     <meta property="og:locale" content="nl_NL">
     <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:image"
-        content="https://www.properbeautysalon.com/assets/images/biab-design-image.jpeg">
+    <meta property="og:image" content="https://www.properbeautysalon.com/assets/images/biab-design-image.jpeg">
     <meta property="og:url" content="https://www.properbeautysalon.com">
     <meta property="og:type" content="website">
 
@@ -33,7 +32,7 @@
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
-    "@type": "BeautySalon",
+    "@type": ["LocalBusiness", "BeautySalon"],
     "name": "Proper Beauty Salon",
     "image": "https://www.properbeautysalon.com/assets/images/biab-design-image.jpeg",
     "@id": "https://www.properbeautysalon.com",
@@ -53,12 +52,17 @@
     },
     "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00",
     "priceRange": "€",
+    "areaServed": {
+        "@type": "Place",
+        "name": "Assendelft"
+    },
     "sameAs": [
         "https://instagram.com/properbeautysalon/",
         "https://www.google.com/search?q=Proper+Beauty+Salon+Reviews"
     ]
     }
     </script>
+
 
     <!-- Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara:400,700|Mukta:500,700" rel="stylesheet">
@@ -99,7 +103,8 @@
                             </p>
                         </div>
                         <div class="hero-illustration is-revealing">
-                            <img src="assets/images/biab-design-image.jpeg" alt="BIAB nagels in Assendelft door Proper Beauty Salon" />
+                            <img src="assets/images/biab-design-image.jpeg"
+                                alt="BIAB nagels in Assendelft door Proper Beauty Salon" />
                         </div>
                     </div>
                 </div>
@@ -123,7 +128,8 @@
                                             <hr class="line">
                                         </div>
                                         <p>
-                                            Hi! Mijn naam is Chelsea, en met veel enthousiasme ben ik mijn eigen nagelsalon in Assendelft gestart!
+                                            Hi! Mijn naam is Chelsea, en met veel enthousiasme ben ik mijn eigen
+                                            nagelsalon in Assendelft gestart!
                                         </p>
                                         <p>
                                             Wil jij mooie, verzorgde nagels die er altijd perfect uitzien? Bekijk mijn
@@ -604,10 +610,10 @@
                                             <div class="pricing-table-title mt-12">
                                                 Luxe Spa Manicure (inclusief Hardgel of BIAB) - 2,5 uur
                                             </div>
-                                            <div class="pricing-table-price mb-8"><span
+                                            <div class="pricing-table-price mb-8"><!--<span
                                                     class="pricing-table-price-currency h4">€ </span><span
                                                     class="pricing-table-price-amount h2">45,-</span> <strike>
-                                                    50,-
+                                                    50,--->Coming soon!
                                                 </strike></div>
                                             <div class="mb-8 pb-8"><em class="text-xs">
                                                     Een complete wellness-ervaring inclusief spa manicure én
@@ -1104,14 +1110,14 @@
                 }
                 }`;
 
-                fetch('https://api.hashnode.com/', {
+            fetch('https://api.hashnode.com/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer e11b9066-0bad-4300-8560-f908dd3028c2'
                 },
                 body: JSON.stringify({ query })
-                })
+            })
                 .then(res => res.json())
                 .then(data => console.log(data));
         });
