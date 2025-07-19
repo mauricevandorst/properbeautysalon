@@ -1282,6 +1282,7 @@ main{
 }
 
 .footer-logo, .logo {
+    width: 100%;
      max-width: 300px;
 }
 
@@ -1339,6 +1340,10 @@ main{
 
 .flex {
     display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
 .justify-space-between {
