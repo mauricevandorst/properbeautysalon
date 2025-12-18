@@ -52,7 +52,7 @@
         <div class="scroll-left is-revealing flex justify-content-center gap-4 mt-64">
           <div class="flex flex-row gap-4 justify-content-center flex-wrap">
             <a class="button button-primary button-shadow" href="./">Home</a>
-            <a class="button button-primary button-shadow" href="./boekingsvoorwaarden.html">Boekingsvoorwaarden</a>
+            <a class="button button-primary button-shadow" href="./boekingsvoorwaarden">Boekingsvoorwaarden</a>
             <a class="button button-primary button-shadow" href="./#treatments">Behandelingen</a>
           </div>
         </div>
@@ -61,7 +61,7 @@
     
     <footer id="footer" class="site-footer text-lightgray"></footer>
     <script>
-        fetch('./footer.html')
+        fetch('./footer')
         .then(response => response.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;
