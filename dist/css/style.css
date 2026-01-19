@@ -287,7 +287,7 @@ h2,.h2{
     letter-spacing:-0.1px
 }
 @media (min-width: 641px){
-    h2,.h2{
+    h2,.h2,h3,.h3{
         font-size:42px;
         line-height:52px;
         letter-spacing:-0.1px
@@ -305,13 +305,13 @@ h3,.h3,blockquote{
         letter-spacing:-0.1px
     }
 }
-h1,h4,h5,h6,.h4,.h5,.h6{
+h1,h2,h4,h5,h6,.h4,.h5,.h6{
     font-size:20px;
     line-height:30px;
     letter-spacing:-0.1px
 }
 @media (min-width: 641px){
-    h1,h4,h5,h6,.h4,.h5,.h6{
+    h1,h2,h4,h5,h6,.h4,.h5,.h6{
         font-size:24px;
         line-height:34px;
         letter-spacing:-0.1px
@@ -353,6 +353,16 @@ h1,h4,h5,h6,.h4,.h5,.h6{
 }
 .text-light h1,.text-light h2,.text-light h3,.text-light h4,.text-light h5,.text-light h6,.text-light .h1,.text-light .h2,.text-light .h3,.text-light .h4,.text-light .h5,.text-light .h6{
     color:#fff !important
+}
+.text-l{
+    font-size:32px;
+    line-height:27px;
+    letter-spacing:-0.1px
+}
+.text-m{
+    font-size:24px;
+    line-height:27px;
+    letter-spacing:-0.1px
 }
 .text-sm{
     font-size:18px;
@@ -519,6 +529,9 @@ button,input,select,textarea,label{
 }
 .text-secondary{
     color:#dcd1ca
+}
+.text-upper{
+    text-transform:uppercase
 }
 .has-top-divider{
     position:relative
