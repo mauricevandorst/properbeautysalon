@@ -636,9 +636,63 @@ html.js [data-reveal-header].is-visible {
 }
 
 .pb-hero-glow {
-  animation: pbSoftFloat 9s ease-in-out infinite;
+  animation: pbSoftFloat 4s ease-in-out infinite;
   transform-origin: center;
   will-change: transform;
+}
+
+.pb-offer-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.pb-offer-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+      inset 0 0 0 1px rgba(248, 222, 197, 0.2),
+      inset 0 0 0 rgba(248, 222, 197, 0);
+  animation: pbOfferGlowPulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pb-offer-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pb-flip-frame {
+  aspect-ratio: 55 / 36;
+  overflow: hidden;
+}
+
+.pb-flip-image {
+  display: block;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 300ms var(--pb-anim-ease-standard), filter 300ms var(--pb-anim-ease-standard);
+  will-change: transform, filter;
+}
+
+.pb-flip-image.is-flipping-out {
+  transform: rotateX(90deg) scale(0.995);
+  filter: brightness(0.95);
+}
+
+.pb-flip-image.is-flipping-in {
+  transform: rotateX(-90deg) scale(0.995);
+  filter: brightness(0.95);
+  transition: none;
+}
+
+.pb-flip-image.is-flipping-in.is-flipping-in-active {
+  transform: rotateX(0deg) scale(1);
+  filter: brightness(1);
+  transition: transform 380ms var(--pb-anim-ease-standard), filter 380ms var(--pb-anim-ease-standard);
 }
 
 .pb-logo-signature {
@@ -1088,14 +1142,6 @@ html.js [data-reveal-header].is-visible {
   max-height: 14rem;
 }
 
-.max-h-\[250px\] {
-  max-height: 250px;
-}
-
-.max-h-\[320px\] {
-  max-height: 320px;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1417,15 +1463,15 @@ html.js [data-reveal-header].is-visible {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
 
-.from-\[\#2e1f1a\] {
-  --tw-gradient-from: #2e1f1a var(--tw-gradient-from-position);
+.from-\[\#2e1f1a\]\/75 {
+  --tw-gradient-from: rgb(46 31 26 / 0.75) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(46 31 26 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-\[\#2e1f1a\]\/75 {
-  --tw-gradient-from: rgb(46 31 26 / 0.75) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(46 31 26 / 0) var(--tw-gradient-to-position);
+.from-\[\#ad9b89\] {
+  --tw-gradient-from: #ad9b89 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(173 155 137 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -1574,6 +1620,10 @@ html.js [data-reveal-header].is-visible {
   padding-top: 3rem;
 }
 
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
@@ -1719,6 +1769,10 @@ html.js [data-reveal-header].is-visible {
   opacity: 0.15;
 }
 
+.opacity-90 {
+  opacity: 0.9;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1767,6 +1821,11 @@ html.js [data-reveal-header].is-visible {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1792,6 +1851,10 @@ html.js [data-reveal-header].is-visible {
   font-family: 'Playfair Display',serif;
 }
 
+.\[perspective\:1400px\] {
+  perspective: 1400px;
+}
+
 /* Prevent Tailwind's .transition utility from forcing 150ms on reveal elements. */
 
 .pb-reveal {
@@ -1812,6 +1875,21 @@ html.js [data-reveal-header].is-visible {
 
   50% {
     transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes pbOfferGlowPulse {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(248, 222, 197, 0.2),
+      inset 0 0 0 rgba(248, 222, 197, 0);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(248, 222, 197, 0.38),
+      inset 0 0 30px rgba(248, 222, 197, 0.24);
   }
 }
 
@@ -1854,6 +1932,8 @@ html.js [data-reveal-header].is-visible {
 
   .pb-btn::after,
   .pb-hero-glow,
+  .pb-offer-glow::before,
+  .pb-flip-image,
   .pb-logo-wordmark,
   .pb-logo-ornaments .h-px,
   .pb-mobile-menu,
@@ -1901,6 +1981,10 @@ html.js [data-reveal-header].is-visible {
 }
 
 @media (min-width: 640px) {
+  .sm\:mb-24 {
+    margin-bottom: 6rem;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2043,8 +2127,8 @@ html.js [data-reveal-header].is-visible {
     grid-column: span 2 / span 2;
   }
 
-  .lg\:mb-24 {
-    margin-bottom: 6rem;
+  .lg\:mb-40 {
+    margin-bottom: 10rem;
   }
 
   .lg\:hidden {
@@ -2117,4 +2201,3 @@ html.js [data-reveal-header].is-visible {
   --tw-content: 'Google reviews laden...';
   content: var(--tw-content);
 }
-

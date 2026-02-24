@@ -87,9 +87,63 @@
   }
 
   .pb-hero-glow {
-    animation: pbSoftFloat 9s ease-in-out infinite;
+    animation: pbSoftFloat 4s ease-in-out infinite;
     transform-origin: center;
     will-change: transform;
+  }
+
+  .pb-offer-glow {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .pb-offer-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow:
+      inset 0 0 0 1px rgba(248, 222, 197, 0.2),
+      inset 0 0 0 rgba(248, 222, 197, 0);
+    animation: pbOfferGlowPulse 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .pb-offer-glow > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .pb-flip-frame {
+    aspect-ratio: 55 / 36;
+    overflow: hidden;
+  }
+
+  .pb-flip-image {
+    display: block;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 300ms var(--pb-anim-ease-standard), filter 300ms var(--pb-anim-ease-standard);
+    will-change: transform, filter;
+  }
+
+  .pb-flip-image.is-flipping-out {
+    transform: rotateX(90deg) scale(0.995);
+    filter: brightness(0.95);
+  }
+
+  .pb-flip-image.is-flipping-in {
+    transform: rotateX(-90deg) scale(0.995);
+    filter: brightness(0.95);
+    transition: none;
+  }
+
+  .pb-flip-image.is-flipping-in.is-flipping-in-active {
+    transform: rotateX(0deg) scale(1);
+    filter: brightness(1);
+    transition: transform 380ms var(--pb-anim-ease-standard), filter 380ms var(--pb-anim-ease-standard);
   }
 
   .pb-logo-signature {
@@ -359,6 +413,21 @@
   }
 }
 
+@keyframes pbOfferGlowPulse {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(248, 222, 197, 0.2),
+      inset 0 0 0 rgba(248, 222, 197, 0);
+  }
+
+  50% {
+    box-shadow:
+      inset 0 0 0 1px rgba(248, 222, 197, 0.38),
+      inset 0 0 30px rgba(248, 222, 197, 0.24);
+  }
+}
+
 @keyframes pbLogoLift {
   from {
     opacity: 0;
@@ -398,6 +467,8 @@
 
   .pb-btn::after,
   .pb-hero-glow,
+  .pb-offer-glow::before,
+  .pb-flip-image,
   .pb-logo-wordmark,
   .pb-logo-ornaments .h-px,
   .pb-mobile-menu,
@@ -407,4 +478,3 @@
     transition: none;
   }
 }
-

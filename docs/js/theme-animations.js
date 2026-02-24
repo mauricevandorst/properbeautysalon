@@ -68,4 +68,71 @@ document.addEventListener('DOMContentLoaded', () => {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
+
+  const flipGalleryImage = document.querySelector('[data-flip-gallery]');
+  if (!reduceMotion && flipGalleryImage) {
+    const imageList = (flipGalleryImage.dataset.flipImages || '')
+      .split(',')
+      .map((path) => path.trim())
+      .filter(Boolean);
+    const intervalSeconds = Number.parseFloat(flipGalleryImage.dataset.flipInterval || '6');
+    const intervalMs = Math.max(2, Number.isFinite(intervalSeconds) ? intervalSeconds : 6) * 1000;
+    const flipOutDurationMs = 300;
+    const flipInDurationMs = 380;
+    const flipTriggerTarget = flipGalleryImage.closest('.pb-flip-frame') || flipGalleryImage;
+    let activeIndex = 0;
+    let isFlipping = false;
+    let flipTimerId = null;
+
+    if (imageList.length > 0) {
+      // Keep the initial frame in sync with the configured order.
+      activeIndex = 0;
+      flipGalleryImage.src = imageList[activeIndex];
+
+      const scheduleNextFlip = () => {
+        if (flipTimerId) window.clearTimeout(flipTimerId);
+        flipTimerId = window.setTimeout(() => {
+          runFlip();
+        }, intervalMs);
+      };
+
+      const runFlip = (triggerEvent) => {
+        const focusTarget = triggerEvent?.type === 'focusin' && triggerEvent.target instanceof HTMLElement
+          ? triggerEvent.target
+          : null;
+        if (document.hidden || isFlipping) {
+          if (focusTarget && document.activeElement === focusTarget) focusTarget.blur();
+          scheduleNextFlip();
+          return;
+        }
+
+        scheduleNextFlip();
+        isFlipping = true;
+        flipGalleryImage.classList.remove('is-flipping-in', 'is-flipping-in-active');
+        flipGalleryImage.classList.add('is-flipping-out');
+
+        window.setTimeout(() => {
+          activeIndex = (activeIndex + 1) % imageList.length;
+          flipGalleryImage.src = imageList[activeIndex];
+          flipGalleryImage.classList.remove('is-flipping-out');
+          flipGalleryImage.classList.add('is-flipping-in');
+          void flipGalleryImage.offsetWidth;
+          flipGalleryImage.classList.add('is-flipping-in-active');
+
+          window.setTimeout(() => {
+            flipGalleryImage.classList.remove('is-flipping-in', 'is-flipping-in-active');
+            isFlipping = false;
+            if (focusTarget && document.activeElement === focusTarget) focusTarget.blur();
+          }, flipInDurationMs);
+        }, flipOutDurationMs);
+      };
+
+      scheduleNextFlip();
+      flipTriggerTarget.addEventListener('mouseenter', runFlip);
+      flipTriggerTarget.addEventListener('focusin', runFlip);
+      flipTriggerTarget.addEventListener('click', runFlip);
+      flipTriggerTarget.addEventListener('touchstart', runFlip, { passive: true });
+    }
+  }
 });
+
