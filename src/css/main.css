@@ -92,6 +92,12 @@
     will-change: transform;
   }
 
+  .pb-soft-hero-glow {
+    animation: pbVerySoftFloat 4s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+
   .pb-offer-glow {
     position: relative;
     isolation: isolate;
@@ -113,6 +119,11 @@
   .pb-offer-glow > * {
     position: relative;
     z-index: 1;
+  }
+
+  #services article[data-reveal].pb-offer-glow {
+    animation: pbServiceShadowLoopFeatured 2.8s ease-in-out infinite;
+    will-change: box-shadow;
   }
 
   .pb-flip-frame {
@@ -413,6 +424,17 @@
   }
 }
 
+@keyframes pbVerySoftFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
 @keyframes pbOfferGlowPulse {
   0%,
   100% {
@@ -425,6 +447,23 @@
     box-shadow:
       inset 0 0 0 1px rgba(248, 222, 197, 0.38),
       inset 0 0 30px rgba(248, 222, 197, 0.24);
+  }
+}
+
+@keyframes pbServiceShadowLoopFeatured {
+  0%,
+  100% {
+    box-shadow:
+      0 8px 16px rgba(90, 67, 55, 0.3),
+      0 0 10px rgba(190, 127, 68, 0.16),
+      0 0 0 1px rgba(248, 222, 197, 0.34);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 28px rgba(90, 67, 55, 0.4),
+      0 0 20px rgba(190, 127, 68, 0.36),
+      0 0 0 1px rgba(248, 222, 197, 0.5);
   }
 }
 
@@ -468,6 +507,7 @@
   .pb-btn::after,
   .pb-hero-glow,
   .pb-offer-glow::before,
+  #services article[data-reveal].pb-offer-glow,
   .pb-flip-image,
   .pb-logo-wordmark,
   .pb-logo-ornaments .h-px,
