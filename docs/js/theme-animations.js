@@ -69,6 +69,39 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+  const offerImageWraps = Array.from(document.querySelectorAll('.pb-offer-image-wrap'));
+  if (!reduceMotion && offerImageWraps.length > 0) {
+    const shimmerIntervalMs = 6000;
+
+    offerImageWraps.forEach((offerImageWrap) => {
+      const shimmerTriggerTarget = offerImageWrap.closest('.pb-offer-glow') || offerImageWrap;
+      let shimmerTimerId = null;
+
+      const runShimmer = () => {
+        if (document.hidden) {
+          scheduleNextShimmer();
+          return;
+        }
+
+        offerImageWrap.classList.remove('is-shimmering');
+        void offerImageWrap.offsetWidth;
+        offerImageWrap.classList.add('is-shimmering');
+        scheduleNextShimmer();
+      };
+
+      const scheduleNextShimmer = () => {
+        if (shimmerTimerId) window.clearTimeout(shimmerTimerId);
+        shimmerTimerId = window.setTimeout(runShimmer, shimmerIntervalMs);
+      };
+
+      scheduleNextShimmer();
+      shimmerTriggerTarget.addEventListener('mouseenter', runShimmer);
+      shimmerTriggerTarget.addEventListener('focusin', runShimmer);
+      shimmerTriggerTarget.addEventListener('click', runShimmer);
+      shimmerTriggerTarget.addEventListener('touchstart', runShimmer, { passive: true });
+    });
+  }
+
   const flipGalleryImage = document.querySelector('[data-flip-gallery]');
   if (!reduceMotion && flipGalleryImage) {
     const imageList = (flipGalleryImage.dataset.flipImages || '')

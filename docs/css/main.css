@@ -665,6 +665,31 @@ html.js [data-reveal-header].is-visible {
   z-index: 2;
 }
 
+.pb-offer-image-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.pb-offer-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -24% -62%;
+  background: linear-gradient(112deg,
+        rgba(255, 255, 255, 0) 38%,
+        rgba(255, 247, 236, 0.42) 50%,
+        rgba(255, 255, 255, 0) 62%);
+  transform: translateX(-135%);
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(0.6px);
+  z-index: 2;
+}
+
+.pb-offer-image-wrap.is-shimmering::after {
+  animation: pbOfferImageShimmer 1.9s ease-out 1 both;
+}
+
 .pb-offer-glow > * {
   position: relative;
   z-index: 1;
@@ -868,6 +893,39 @@ html.js [data-reveal-header].is-visible {
   transform: rotate(180deg);
 }
 
+.pb-breadcrumb {
+  margin-bottom: 1.25rem;
+}
+
+.pb-breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #7a6458;
+}
+
+.pb-breadcrumb-link {
+  color: #7a6458;
+  transition: color var(--pb-duration-micro) var(--pb-anim-ease-standard);
+}
+
+.pb-breadcrumb-link:hover,
+  .pb-breadcrumb-link:focus-visible {
+  color: #2e1f1a;
+}
+
+.pb-breadcrumb-separator {
+  color: rgba(122, 100, 88, 0.65);
+}
+
+.pb-breadcrumb-current {
+  color: #2e1f1a;
+}
+
 .pb-mobile-submenu-panel {
   display: grid;
   gap: 0.2rem;
@@ -916,6 +974,16 @@ html.js [data-reveal-header].is-visible {
 .pb-footer-shell {
   padding-top: 0.45rem;
   padding-bottom: 0.1rem;
+}
+
+.pb-footer-logo {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  image-rendering: auto;
 }
 
 .pb-footer-link {
@@ -1028,10 +1096,6 @@ html.js [data-reveal-header].is-visible {
   margin-bottom: 4rem;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -1100,10 +1164,6 @@ html.js [data-reveal-header].is-visible {
   display: none;
 }
 
-.aspect-\[5\/4\] {
-  aspect-ratio: 5/4;
-}
-
 .h-1\.5 {
   height: 0.375rem;
 }
@@ -1149,20 +1209,12 @@ html.js [data-reveal-header].is-visible {
   height: 1px;
 }
 
-.max-h-\[200px\] {
-  max-height: 200px;
+.min-h-\[200px\] {
+  min-height: 200px;
 }
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-\[19rem\] {
-  min-height: 19rem;
-}
-
-.min-h-\[200px\] {
-  min-height: 200px;
 }
 
 .w-1\.5 {
@@ -1403,10 +1455,6 @@ html.js [data-reveal-header].is-visible {
   border-color: rgb(200 148 92 / 0.3);
 }
 
-.border-\[\#c8945c\]\/40 {
-  border-color: rgb(200 148 92 / 0.4);
-}
-
 .bg-\[\#be7f44\] {
   --tw-bg-opacity: 1;
   background-color: rgb(190 127 68 / var(--tw-bg-opacity, 1));
@@ -1518,11 +1566,6 @@ html.js [data-reveal-header].is-visible {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.via-\[\#2e1f1a\]\/25 {
-  --tw-gradient-to: rgb(46 31 26 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), rgb(46 31 26 / 0.25) var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-
 .via-\[\#2e1f1a\]\/50 {
   --tw-gradient-to: rgb(46 31 26 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(46 31 26 / 0.5) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1594,11 +1637,6 @@ html.js [data-reveal-header].is-visible {
   padding-right: 1.5rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -1649,10 +1687,6 @@ html.js [data-reveal-header].is-visible {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pt-7 {
-  padding-top: 1.75rem;
 }
 
 .font-sans {
@@ -1944,6 +1978,26 @@ html.js [data-reveal-header].is-visible {
   }
 }
 
+@keyframes pbOfferImageShimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-135%);
+  }
+
+  14% {
+    opacity: 0.22;
+  }
+
+  84% {
+    opacity: 0.5;
+    transform: translateX(135%);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes pbLogoLift {
   from {
     opacity: 0;
@@ -1984,6 +2038,7 @@ html.js [data-reveal-header].is-visible {
   .pb-btn::after,
   .pb-hero-glow,
   .pb-offer-glow::before,
+  .pb-offer-image-wrap::after,
   #services article[data-reveal].pb-offer-glow,
   .pb-flip-image,
   .pb-logo-wordmark,
@@ -2037,22 +2092,6 @@ html.js [data-reveal-header].is-visible {
     margin-bottom: 6rem;
   }
 
-  .sm\:aspect-\[16\/10\] {
-    aspect-ratio: 16/10;
-  }
-
-  .sm\:aspect-\[22\/10\] {
-    aspect-ratio: 22/10;
-  }
-
-  .sm\:aspect-\[16\/19\] {
-    aspect-ratio: 16/19;
-  }
-
-  .sm\:min-h-\[21rem\] {
-    min-height: 21rem;
-  }
-
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2099,10 +2138,6 @@ html.js [data-reveal-header].is-visible {
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:aspect-\[22\/10\] {
-    aspect-ratio: 22/10;
   }
 
   .md\:h-auto {
@@ -2205,18 +2240,6 @@ html.js [data-reveal-header].is-visible {
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:aspect-\[16\/9\] {
-    aspect-ratio: 16/9;
-  }
-
-  .lg\:aspect-\[22\/9\] {
-    aspect-ratio: 22/9;
-  }
-
-  .lg\:min-h-\[23rem\] {
-    min-height: 23rem;
   }
 
   .lg\:grid-cols-4 {

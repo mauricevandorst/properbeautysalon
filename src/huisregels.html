@@ -30,22 +30,113 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./css/main.css" />
-  <script type="application/ld+json">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+      "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.properbeautysalon.com/"
+          "@type": "NailSalon",
+          "@id": "https://www.properbeautysalon.com/#nail-salon",
+          "name": "Proper Beauty Salon",
+          "url": "https://www.properbeautysalon.com/",
+          "image": "https://www.properbeautysalon.com/assets/images/logo.png",
+          "telephone": "+31 6 30582559",
+          "email": "properbeautysa@gmail.com",
+          "priceRange": "EUR",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Delftlaan 89",
+            "addressLocality": "Assendelft",
+            "postalCode": "1567 JB",
+            "addressCountry": "NL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.4744,
+            "longitude": 4.7589
+          },
+          "hasMap": "https://maps.google.com/?q=Delftlaan+89,+Assendelft",
+          "areaServed": [
+            "Assendelft",
+            "Krommenie",
+            "Wormerveer",
+            "Zaandam",
+            "Zaanstad"
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "09:00",
+              "closes": "20:00"
+            }
+          ],
+          "service": [
+            {
+              "@type": "Service",
+              "name": "BIAB"
+            },
+            {
+              "@type": "Service",
+              "name": "Russian manicure"
+            },
+            {
+              "@type": "Service",
+              "name": "Hardgel"
+            },
+            {
+              "@type": "Service",
+              "name": "Nail art"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/properbeautysalon/"
+          ]
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Huisregels",
-          "item": "https://www.properbeautysalon.com/huisregels.html"
+          "@type": "WebSite",
+          "@id": "https://www.properbeautysalon.com/#website",
+          "url": "https://www.properbeautysalon.com/",
+          "name": "Proper Beauty Salon",
+          "inLanguage": "nl-NL"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.properbeautysalon.com/huisregels.html#webpage",
+          "url": "https://www.properbeautysalon.com/huisregels.html",
+          "name": "Huisregels nagelstudio Assendelft | Proper Beauty Salon",
+          "isPartOf": {
+            "@id": "https://www.properbeautysalon.com/#website"
+          },
+          "about": {
+            "@id": "https://www.properbeautysalon.com/#nail-salon"
+          },
+          "inLanguage": "nl-NL"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.properbeautysalon.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Huisregels",
+              "item": "https://www.properbeautysalon.com/huisregels.html"
+            }
+          ]
         }
       ]
     }
@@ -83,7 +174,7 @@
       </button>
 
       <nav data-reveal data-reveal-header data-reveal-delay="1" class="hidden items-center gap-7 md:flex">
-        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold text-[#7a6458]">
+        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 md:justify-end text-sm font-semibold text-[#7a6458]">
           <li><a class="transition hover:text-[#2e1f1a]" href="./afspraak.html">Afspraak maken</a></li>
           <li><a class="transition hover:text-[#2e1f1a]" href="./index.html#services">Behandelingen</a></li>
           <li><a class="transition hover:text-[#2e1f1a]" href="./index.html#gallery">Galerij</a></li>
@@ -112,7 +203,7 @@
     <nav id="mobile-menu" class="pb-mobile-menu border-t border-[#7a6458]/20 bg-[#fdfaf6] md:hidden">
       <div class="mx-auto flex w-[92vw] max-w-6xl flex-col gap-1 py-3 text-sm font-semibold text-[#7a6458]">
         <a class="rounded-lg px-3 py-2 transition hover:bg-[#fff6ed] hover:text-[#2e1f1a]"
-          href="./afspraak.html">Afspraak maken</a>
+          href="./afspraak.html">Home</a>
         <a class="rounded-lg px-3 py-2 transition hover:bg-[#fff6ed] hover:text-[#2e1f1a]"
           href="./index.html#services">Behandelingen</a>
         <a class="rounded-lg px-3 py-2 transition hover:bg-[#fff6ed] hover:text-[#2e1f1a]"
@@ -136,13 +227,21 @@
           </div>
         </div>
         <a href="./afspraak.html"
-          class="pb-btn mt-2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#be7f44] to-[#d3a774] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_30px_rgba(190,127,68,0.35)]">Reserveren</a>
+          class="pb-btn mt-2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#be7f44] to-[#d3a774] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_30px_rgba(190,127,68,0.35)]">Afspraak maken</a>
       </div>
     </nav>
   </header>
 
   <main class="py-8 md:py-12">
     <section class="mx-auto w-[92vw] max-w-6xl">
+      <nav data-reveal class="pb-breadcrumb" aria-label="Breadcrumb">
+        <ol class="pb-breadcrumb-list">
+          <li><a class="pb-breadcrumb-link" href="./index.html">Home</a></li>
+          <li class="pb-breadcrumb-separator" aria-hidden="true">/</li>
+          <li class="pb-breadcrumb-current" aria-current="page">Huisregels</li>
+        </ol>
+      </nav>
+
       <div data-reveal class="mb-8 md:mb-10">
         <div class="mb-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-[#7a6458]">
           <span class="h-px w-7 bg-[#c8945c]"></span>
@@ -178,16 +277,6 @@
         </li>
       </ul>
 
-      <div data-reveal data-reveal-delay="8" class="mt-6 flex flex-wrap gap-3">
-        <a href="./afspraak.html"
-          class="pb-btn inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#be7f44] to-[#d3a774] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_30px_rgba(190,127,68,0.35)] transition hover:-translate-y-0.5">Afspraak
-          maken</a>
-        <a href="./boekingsvoorwaarden.html"
-          class="pb-btn inline-flex items-center justify-center rounded-full border border-[#7a6458]/30 bg-white/70 px-5 py-3 text-sm font-bold text-[#2e1f1a] transition hover:-translate-y-0.5">Boekingsvoorwaarden</a>
-        <a href="./index.html"
-          class="pb-btn inline-flex items-center justify-center rounded-full border border-[#7a6458]/30 bg-white/70 px-5 py-3 text-sm font-bold text-[#2e1f1a] transition hover:-translate-y-0.5">Terug
-          naar home</a>
-      </div>
     </section>
   </main>
 
@@ -222,9 +311,8 @@
       class="pb-footer-shell mx-auto w-[92vw] max-w-6xl">
       <div class="grid gap-6 pt-4 pb-2 md:pb-4 lg:grid-cols-[1.2fr_auto_auto] lg:items-start lg:gap-10">
         <div class="space-y-3">
-          <p
-            class="inline-flex items-center gap-2 rounded-full border border-[#c8945c]/40 bg-white/70 px-3 py-1 text-xs uppercase tracking-[0.14em] text-[#7a6458]">
-            <span class="h-1.5 w-1.5 rounded-full bg-[#be7f44]"></span>
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-[#7a6458]">
+            <img src="./assets/images/logo.jpg" alt="Logo Proper Beauty Salon" class="pb-footer-logo" width="22" height="22" loading="lazy" decoding="async" />
             Proper Beauty Salon
           </p>
           <h2 class="text-3xl leading-tight text-[#2e1f1a] [font-family:'Playfair_Display',serif] sm:text-4xl">Jouw
@@ -244,6 +332,19 @@
             <li><a class="pb-footer-link" href="./index.html#reviews">Reviews</a></li>
             <li><a class="pb-footer-link" href="./huisregels.html">Huisregels</a></li>
             <li><a class="pb-footer-link" href="./boekingsvoorwaarden.html">Boekingsvoorwaarden</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#7a6458]">Regio's</h3>
+          <ul class="space-y-2">
+            <li><a class="pb-footer-link" href="./nagelstudio-zaandam.html">Zaandam</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-krommenie.html">Krommenie</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-wormerveer.html">Wormerveer</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-westzaan.html">Westzaan</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-zaandijk.html">Zaandijk</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-koog-aan-de-zaan.html">Koog aan de Zaan</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-wormer.html">Wormer</a></li>
           </ul>
         </div>
 
@@ -331,7 +432,6 @@
 </body>
 
 </html>
-
 
 
 

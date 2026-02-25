@@ -116,6 +116,31 @@
     z-index: 2;
   }
 
+  .pb-offer-image-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .pb-offer-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -24% -62%;
+    background: linear-gradient(112deg,
+        rgba(255, 255, 255, 0) 38%,
+        rgba(255, 247, 236, 0.42) 50%,
+        rgba(255, 255, 255, 0) 62%);
+    transform: translateX(-135%);
+    opacity: 0;
+    pointer-events: none;
+    filter: blur(0.6px);
+    z-index: 2;
+  }
+
+  .pb-offer-image-wrap.is-shimmering::after {
+    animation: pbOfferImageShimmer 1.9s ease-out 1 both;
+  }
+
   .pb-offer-glow > * {
     position: relative;
     z-index: 1;
@@ -319,6 +344,39 @@
     transform: rotate(180deg);
   }
 
+  .pb-breadcrumb {
+    margin-bottom: 1.25rem;
+  }
+
+  .pb-breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #7a6458;
+  }
+
+  .pb-breadcrumb-link {
+    color: #7a6458;
+    transition: color var(--pb-duration-micro) var(--pb-anim-ease-standard);
+  }
+
+  .pb-breadcrumb-link:hover,
+  .pb-breadcrumb-link:focus-visible {
+    color: #2e1f1a;
+  }
+
+  .pb-breadcrumb-separator {
+    color: rgba(122, 100, 88, 0.65);
+  }
+
+  .pb-breadcrumb-current {
+    color: #2e1f1a;
+  }
+
   .pb-mobile-submenu-panel {
     display: grid;
     gap: 0.2rem;
@@ -367,6 +425,15 @@
   .pb-footer-shell {
     padding-top: 0.45rem;
     padding-bottom: 0.1rem;
+  }
+
+  .pb-footer-logo {
+    display: block;
+    width: 1.375rem;
+    height: 1.375rem;
+    flex-shrink: 0;
+    object-fit: contain;
+    image-rendering: auto;
   }
 
   .pb-footer-link {
@@ -467,6 +534,26 @@
   }
 }
 
+@keyframes pbOfferImageShimmer {
+  0% {
+    opacity: 0;
+    transform: translateX(-135%);
+  }
+
+  14% {
+    opacity: 0.22;
+  }
+
+  84% {
+    opacity: 0.5;
+    transform: translateX(135%);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes pbLogoLift {
   from {
     opacity: 0;
@@ -507,6 +594,7 @@
   .pb-btn::after,
   .pb-hero-glow,
   .pb-offer-glow::before,
+  .pb-offer-image-wrap::after,
   #services article[data-reveal].pb-offer-glow,
   .pb-flip-image,
   .pb-logo-wordmark,

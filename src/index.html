@@ -32,7 +32,7 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="./css/main.css" />
-  <script type="application/ld+json">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -44,7 +44,7 @@
           "image": "https://www.properbeautysalon.com/assets/images/logo.png",
           "telephone": "+31 6 30582559",
           "email": "properbeautysa@gmail.com",
-          "priceRange": "€€",
+          "priceRange": "EUR",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Delftlaan 89",
@@ -52,6 +52,12 @@
             "postalCode": "1567 JB",
             "addressCountry": "NL"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 52.4744,
+            "longitude": 4.7589
+          },
+          "hasMap": "https://maps.google.com/?q=Delftlaan+89,+Assendelft",
           "areaServed": [
             "Assendelft",
             "Krommenie",
@@ -75,6 +81,24 @@
               "closes": "20:00"
             }
           ],
+          "service": [
+            {
+              "@type": "Service",
+              "name": "BIAB"
+            },
+            {
+              "@type": "Service",
+              "name": "Russian manicure"
+            },
+            {
+              "@type": "Service",
+              "name": "Hardgel"
+            },
+            {
+              "@type": "Service",
+              "name": "Nail art"
+            }
+          ],
           "sameAs": [
             "https://www.instagram.com/properbeautysalon/"
           ]
@@ -85,13 +109,26 @@
           "url": "https://www.properbeautysalon.com/",
           "name": "Proper Beauty Salon",
           "inLanguage": "nl-NL"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.properbeautysalon.com/#webpage",
+          "url": "https://www.properbeautysalon.com/",
+          "name": "Nagelstudio Assendelft | BIAB & Manicure | Proper Beauty Salon",
+          "isPartOf": {
+            "@id": "https://www.properbeautysalon.com/#website"
+          },
+          "about": {
+            "@id": "https://www.properbeautysalon.com/#nail-salon"
+          },
+          "inLanguage": "nl-NL"
         }
       ]
     }
   </script>
 </head>
 
-<body class="min-h-screen text-[#2e1f1a] font-sans antialiased">
+<body class="pb-page-home min-h-screen text-[#2e1f1a] font-sans antialiased">
   <div
     class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_10%_0%,rgba(242,216,207,0.6)_0%,transparent_36%),radial-gradient(circle_at_88%_10%,rgba(200,148,92,0.2)_0%,transparent_35%)]">
   </div>
@@ -149,7 +186,7 @@
     <nav id="mobile-menu" class="pb-mobile-menu border-t border-[#7a6458]/20 bg-[#fdfaf6] md:hidden">
       <div class="mx-auto flex w-[92vw] max-w-6xl flex-col gap-1 py-3 text-sm font-semibold text-[#7a6458]">
         <a class="rounded-lg px-3 py-2 transition hover:bg-[#fff6ed] hover:text-[#2e1f1a]"
-          href="./afspraak.html">Afspraak maken</a>
+          href="./afspraak.html">Home</a>
         <a class="rounded-lg px-3 py-2 transition hover:bg-[#fff6ed] hover:text-[#2e1f1a]"
           href="#services">Behandelingen</a>
         <a class="rounded-lg px-3 py-2 transition hover:bg-[#fff6ed] hover:text-[#2e1f1a]" href="#gallery">Galerij</a>
@@ -170,7 +207,7 @@
           </div>
         </div>
         <a href="./afspraak.html"
-          class="pb-btn mt-2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#be7f44] to-[#d3a774] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_30px_rgba(190,127,68,0.35)]">Reserveren</a>
+          class="pb-btn mt-2 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#be7f44] to-[#d3a774] px-5 py-3 text-sm font-bold text-white shadow-[0_14px_30px_rgba(190,127,68,0.35)]">Afspraak maken</a>
       </div>
     </nav>
   </header>
@@ -224,7 +261,7 @@
                 Assendelft
               </h2>
             </div>
-            <p class="max-w-4xl text-[#7a6458]">In mijn salon aan de Deltlaan in Assendelft help ik klanten
+            <p class="max-w-4xl text-[#7a6458]">In mijn salon aan de Delftlaan in Assendelft help ik klanten
               uit Assendelft, Krommenie, Wormerveer, Zaandam en omstreken met BIAB, hardgel, Russian manicure en nail
               art.</p>
             <p class="max-w-2xl text-[#7a6458]">Boek je afspraak in mijn agenda en reserveer gelijk jouw gewenste
@@ -271,7 +308,7 @@
             <!-- Uitgelichte aanbieding -->
             <article data-reveal data-reveal-delay="0" class="pb-offer-glow relative min-h-[200px] overflow-hidden rounded-[20px] border border-[#7a6458]/15 shadow-[0_16px_38px_rgba(46,31,26,0.15)]
             lg:col-span-2 transition hover:-translate-y-0.5 hover:shadow-lg">
-              <div class="absolute inset-0 overflow-hidden">
+              <div class="pb-offer-image-wrap absolute inset-0 overflow-hidden">
                 <img src="./assets/images/design-3.jpg" alt="Nagelstyliste brengt glanzende lak aan"
                   class="h-full w-full object-cover object-bottom opacity-90" />
               </div>
@@ -743,7 +780,7 @@
       </div>
     </section>
 
-    <section id="reviews" class="relative pt-8 md:pt-16">
+    <section id="reviews" class="relative pt-8 md:pt-16 overflow-hidden">
       <div class="mx-auto w-[92vw] max-w-6xl">
         <div data-reveal class="flex flex-col gap-4">
           <div>
@@ -818,7 +855,8 @@
     <div class="pb-footer-shell mx-auto w-[92vw] max-w-6xl">
       <div class="grid gap-6 pt-4 pb-2 md:pb-4 lg:grid-cols-[1.2fr_auto_auto] lg:items-start lg:gap-10">
         <div class="space-y-3">
-          <p class="inline-flex text-xs uppercase tracking-[0.14em] text-[#7a6458]">
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-[#7a6458]">
+            <img src="./assets/images/logo.jpg" alt="Logo Proper Beauty Salon" class="pb-footer-logo" width="22" height="22" loading="lazy" decoding="async" />
             Proper Beauty Salon
           </p>
           <h2 class="text-3xl leading-tight text-[#2e1f1a] [font-family:'Playfair_Display',serif] sm:text-4xl">Jouw
@@ -840,6 +878,19 @@
             <li><a class="pb-footer-link" href="./index.html#reviews">Reviews</a></li>
             <li><a class="pb-footer-link" href="./huisregels.html">Huisregels</a></li>
             <li><a class="pb-footer-link" href="./boekingsvoorwaarden.html">Boekingsvoorwaarden</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#7a6458]">Regio's</h3>
+          <ul class="space-y-2">
+            <li><a class="pb-footer-link" href="./nagelstudio-zaandam.html">Zaandam</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-krommenie.html">Krommenie</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-wormerveer.html">Wormerveer</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-westzaan.html">Westzaan</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-zaandijk.html">Zaandijk</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-koog-aan-de-zaan.html">Koog aan de Zaan</a></li>
+            <li><a class="pb-footer-link" href="./nagelstudio-wormer.html">Wormer</a></li>
           </ul>
         </div>
 
