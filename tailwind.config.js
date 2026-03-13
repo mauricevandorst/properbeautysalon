@@ -11,7 +11,8 @@ module.exports = {
       },
       fontFamily: {
         display: ['"Bebas Neue"', "sans-serif"],
-        sans: ['"Inter"', "sans-serif"],
+        sans: ['"PB Primary"', '"Inter"', "sans-serif"],
+        subtitle: ['"Cormorant Garamond"', "serif"],
       },
       keyframes: {
         marquee: {
